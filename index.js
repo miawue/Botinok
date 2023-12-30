@@ -20,6 +20,19 @@ const client = new Client({
     ]
 })
 
+// Отлавливаем ошибки
+client.on('error', error => {
+    console.error('The WebSocket encountered an error:', error);
+});
+
+client.on('shardError', error => {
+    console.error('The WebSocket encountered an error:', error);
+});
+
+client.on('shardDisconnect', error => {
+    console.error('The WebSocket disconnected:', error);
+});
+
 // Загружает все команды
 
 const commands = [];
@@ -85,10 +98,5 @@ client.on('interactionCreate', async interaction => {
     }
 
 })
-
-// Отлавливаем ошибку
-client.on('error', error => {
-    console.error('The WebSocket encountered an error:', error);
-});
 
 client.login(process.env.TOKEN)
