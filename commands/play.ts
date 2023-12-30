@@ -13,6 +13,8 @@ const playFunc = async (player, interaction) => {
     if (!channel) return interaction.reply('Необходимо находится в голосовом канале'); // Убедимся что пользователь в голосовом канале
     const query = interaction.options.getString('url', true);
 
+    await interaction.deferReply();
+
     try {
         const { track } = await player.play(channel, query, {
             nodeOptions: {
