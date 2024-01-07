@@ -1,5 +1,6 @@
 const { ApplicationCommandOptionType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const db = require("../mongoDB");
+const { language } = require('../config');
 
 
 let selectedThumbnailURL;
@@ -109,7 +110,7 @@ module.exports = {
 
         collector.on('end', (msg, reason) => {
           if (reason === 'time') {
-            embed.setDescription(lang.msg80);
+            embed.setDescription(language.msg80);
             return interaction.editReply({ embeds: [embed], components: [] }).catch(e => { });
           }
         });
