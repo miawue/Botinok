@@ -10,4 +10,7 @@ run:
   scriptName: ./index.js
   persistenceMount: /data
   containerPort: 80
+<<<<<<< HEAD
 
+=======
+>>>>>>> 48c1c93dd8e37c50311595ae36aa6d0cc4687fc4
