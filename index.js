@@ -1,7 +1,5 @@
 const config = require('./config.js');
 
-console.log('CONFIG', process.env)
-
 if(config.shardManager.shardStatus == true){
 
 const { ShardingManager } = require('discord.js');

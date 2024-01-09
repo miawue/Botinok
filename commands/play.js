@@ -19,6 +19,10 @@ module.exports = {
   run: async (client, interaction) => {
     try {
 
+      // if (interaction.user.id === '880075979471589418') {
+      //   interaction.reply('Семен мне заплатили чтобы ты не мог треки ставить')
+      // }
+
       const name = interaction.options.getString('name')
       if (!name) return interaction.reply({ content: `❌ Enter a valid song name.`, ephemeral: true }).catch(e => { });
       let res;
@@ -38,7 +42,7 @@ module.exports = {
       embed.setColor(client.config.embedColor);
       embed.setTitle(`Found: ${name}`);
 
-      const maxTracks = res.slice(0, 10);
+      const maxTracks = res.slice(0, 5);
 
       let track_button_creator = maxTracks.map((song, index) => {
         return new ButtonBuilder()

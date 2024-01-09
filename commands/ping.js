@@ -27,12 +27,12 @@ module.exports = {
 
       const start = Date.now();
       interaction.reply("Pinging....").then(msg => {
+        setTimeout(() => msg.delete(), 1000)
         const end = Date.now();
         const embed = new EmbedBuilder()
           .setColor(`#6190ff`)
-          .setTitle(`Bot Latency`)
-          .setDescription(`**Pong** : ${end - start}ms`)
-        return interaction.editReply({ embeds: [embed] }).catch(e => { });
+          .setTitle('Задержка бота...')
+        return interaction.editReply(`**Задержка** : ${((end - start) / 1000).toFixed(2)} с \n Красавчик - <@443398885440880652>`).catch(e => { });
       }).catch(err => { })
 
     } catch (e) {
@@ -40,18 +40,3 @@ module.exports = {
   }
   },
 };
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
