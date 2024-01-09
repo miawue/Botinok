@@ -1,23 +1,8 @@
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
   name: "queue",
-  description: "It shows you the queue list.",
+  description: "Показывает музыкальную очередь",
   permissions: "0x0000000000000800",
   options: [],
   run: async (client, interaction) => {
@@ -25,8 +10,8 @@ module.exports = {
     try {
 
      const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true }).catch(e => { })
-      if (!queue.songs[0]) return interaction.reply({ content: '⚠️ Queue is empty!!', ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ Музыка не обнаружена!!', ephemeral: true }).catch(e => { })
+      if (!queue.songs[0]) return interaction.reply({ content: '⚠️ Очередь пуста!!', ephemeral: true }).catch(e => { })
 
       const trackl = []
       queue.songs.map(async (track, i) => {
@@ -67,16 +52,16 @@ module.exports = {
       const generateEmbed = async (start) => {
         let sayı = page === 1 ? 1 : page * kaçtane - kaçtane + 1
         const current = trackl.slice(start, start + kaçtane)
-        if (!current || !current?.length > 0) return interaction.reply({ content: '⚠️ Queue is empty!!', ephemeral: true }).catch(e => { })
+        if (!current || !current?.length > 0) return interaction.reply({ content: '⚠️ Очередь пуста!!', ephemeral: true }).catch(e => { })
         return new EmbedBuilder()
-          .setTitle(`${interaction.guild.name}  Queue`)
+          .setTitle(`${interaction.guild.name}  очередь`)
           .setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
           .setColor(client.config.embedColor)
-          .setDescription(`▶️ Now plawying: \`${queue.songs[0].name}\`
+          .setDescription(`▶️ Сейчас играет: \`${queue.songs[0].name}\`
     ${current.map(data =>
-            `\n\`${sayı++}\` | [${data.title}](${data.url}) | (Executed by <@${data.user.id}>)`
+            `\n\`${sayı++}\` | [${data.title}](${data.url}) | (Включено <@${data.user.id}>)`
           )}`)
-          .setFooter({ text: `Page ${page}/${Math.floor(a + 1)}` })
+          .setFooter({ text: `Страница ${page}/${Math.floor(a + 1)}` })
       }
 
       const canFitOnOnePage = trackl.length <= kaçtane
@@ -96,7 +81,7 @@ module.exports = {
         collector.on("collect", async (button) => {
           if (button?.customId === "close") {
             collector?.stop()
-           return button?.reply({ content: 'Command Cancelled', ephemeral: true }).catch(e => { })
+           return button?.reply({ content: 'Команда отменена', ephemeral: true }).catch(e => { })
           } else {
 
             if (button.customId === backId) {
@@ -145,9 +130,9 @@ module.exports = {
               .setDisabled(true))
 
           const embed = new EmbedBuilder()
-            .setTitle('Command Timeout')
+            .setTitle('Время вышло')
             .setColor(`#ecfc03`)
-            .setDescription('▶️ Execute the Queue command again!!')
+            .setDescription('▶️ Снова выполните команду "queue".!!')
           return interaction?.editReply({ embeds: [embed], components: [button] }).catch(e => { })
 
         })
@@ -158,18 +143,3 @@ module.exports = {
   }
   }
 }
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/

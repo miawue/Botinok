@@ -10,7 +10,7 @@ if(botChannel){
 if(botChannel.id == oldState.channelId)
 if(botChannel?.members?.find(x => x == client?.user?.id)){
 if(botChannel?.members?.size == 1){
-await queue?.textChannel?.send({ content: `🔴 Users left channel!!` }).catch(e => { })
+await queue?.textChannel?.send({ content: `🔴 Пользователь покинул голосовой канал!!` }).catch(e => { })
 if(queue || queue?.playing){
 return queue?.stop(oldState.guild.id)
 }
@@ -45,19 +45,3 @@ await queue.resume();
 }
 }
 }
-
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
