@@ -12,10 +12,10 @@ module.exports = {
       const { EmbedBuilder } = require('discord.js')
         const embed = new EmbedBuilder()
             .setColor('#da2a41')
-            .setImage('https://media.discordapp.net/attachments/211301957023956992/918818354536513567/image0-47-1-1.gif?ex=65aa5546&is=6597e046&hm=7de6d8cec188b27085763b98453a94552778ac22ae36212977462a441eb7a4e9&')
+            .setImage('https://media.discordapp.net/attachments/901478705497538590/1063142958251122880/ogo.gif?ex=65a95b89&is=6596e689&hm=c411ffc41479966726230e046777c9147fc8b092a442e216d5865b9ace009a04&')
             .setAuthor({
           name: 'Связаться с разработчиком бота(кликабельно)',
-          iconURL: 'https://media.discordapp.net/attachments/901478705497538590/1063142958251122880/ogo.gif?ex=65a95b89&is=6596e689&hm=c411ffc41479966726230e046777c9147fc8b092a442e216d5865b9ace009a04&',
+          iconURL: 'https://media.discordapp.net/attachments/211301957023956992/918818354536513567/image0-47-1-1.gif?ex=65aa5546&is=6597e046&hm=7de6d8cec188b27085763b98453a94552778ac22ae36212977462a441eb7a4e9&',
           url: 'https://t.me/miawueq'
         })
             .setTimestamp();

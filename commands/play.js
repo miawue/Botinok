@@ -40,7 +40,7 @@ module.exports = {
 
       const embed = new EmbedBuilder();
       embed.setColor(client.config.embedColor);
-      embed.setTitle(`Found: ${name}`);
+      embed.setTitle(`Найдено: ${name}`);
 
       const maxTracks = res.slice(0, 5);
 
