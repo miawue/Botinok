@@ -1,6 +1,5 @@
 module.exports = {
-  TOKEN: "MTE5MDM3MDE4MjcxNjIxMTM3Mw.G6Sxq0.WKtg03Kej6qW_fYGCWLrsoIdeKEqb57KF3EXGo",
-  ownerID: ["1004206704994566164", ""],
+  ownerID: ["294244367655501824", ""],
   botInvite: "",
   supportServer: "",
   mongodbURL: "mongodb+srv://shiva:shiva@musicbotyt.ouljywv.mongodb.net/?retryWrites=true&w=majority",
@@ -9,10 +8,6 @@ module.exports = {
   language: "en",
   embedColor: "00fbff",
   errorLog: "",
-  sponsor: {
-    status: true,
-    url: "https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A",
-  },
 
   voteManager: {
     status: false,

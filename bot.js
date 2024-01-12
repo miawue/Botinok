@@ -1,19 +1,3 @@
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
-
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
 const { DisTube } = require("distube");
 const { SpotifyPlugin } = require("@distube/spotify");
@@ -24,6 +8,7 @@ const { printWatermark } = require('./util/pw');
 const config = require("./config.js");
 const fs = require("fs");
 const path = require('path');
+require('dotenv').config()
 
 const client = new Client({
   intents: Object.keys(GatewayIntentBits).map((a) => {
@@ -101,9 +86,8 @@ fs.readdir(config.commandsDir, (err, files) => {
 });
 
 
-
 if (config.TOKEN || process.env.TOKEN) {
-  client.login(config.TOKEN || process.env.TOKEN).catch((e) => {
+  client.login(process.env.TOKEN).catch((e) => {
     console.log('TOKEN ERROR❌❌');
   });
 } else {
