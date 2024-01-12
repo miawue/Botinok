@@ -33,10 +33,14 @@ module.exports = {
           interaction
         });
       } catch (e) {
+        console.log(e)
         return interaction.editReply({ content: `❌ Нет результатов` }).catch(e => { });
       }
 
-      if (!res || !res.length || !res.length > 1) return interaction.reply({ content: `❌ Нет результатов`, ephemeral: true }).catch(e => { });
+      if (!res || !res.length || !res.length > 1) {
+        console.log(res)
+        return interaction.reply({ content: `❌ Нет результатов`, ephemeral: true }).catch(e => { console.log(e) }) 
+      }
 
       const embed = new EmbedBuilder();
       embed.setColor(client.config.embedColor);
@@ -105,6 +109,7 @@ module.exports = {
                   interaction
                 });
               } catch (e) {
+                console.log(e)
                 await interaction.editReply({ content: `❌ Нет результатов!`, ephemeral: true }).catch(e => { });
               }
               return collector.stop();
