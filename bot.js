@@ -113,29 +113,12 @@ if(config.mongodbURL || process.env.MONGO){
 
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 80;
 app.get('/', (req, res) => {
   const imagePath = path.join(__dirname, 'index.html');
   res.sendFile(imagePath);
 });
 app.listen(port, () => {
-  console.log(`🔗 Listening to RTX: http://localhost:${port}`);
-  console.log(`🔗 Replit URL: https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`);
+  console.log(`🔗 Listening to: http://localhost:${port}`);
 });
 printWatermark();
-
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
