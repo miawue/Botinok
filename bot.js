@@ -86,9 +86,10 @@ fs.readdir(config.commandsDir, (err, files) => {
 });
 
 
-if (config.TOKEN || process.env.TOKEN) {
-  console.log(process.env)
+if (process.env.TOKEN) {
+  console.log(process.env.TOKEN)
   client.login(process.env.TOKEN).catch((e) => {
+    console.log('Login error', e)
     console.log('TOKEN ERROR❌❌');
   });
 } else {
